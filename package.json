@@ -1,0 +1,38 @@
+{
+  "name": "jsfxxk-as-altjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all": "npm-run-all lint clean build start",
+    "build": "node build.mjs",
+    "clean": "rimraf dist",
+    "start": "node dist/main",
+    "lint": "npm-run-all --continue-on-error lint:*",
+    "lint:eslint": "eslint src/**/*.ts",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc",
+    "fix": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@types/node": "^22.10.1",
+    "@types/pegjs": "^0.10.6",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
+  },
+  "dependencies": {
+    "esbuild": "^0.24.0",
+    "escodegen": "^2.1.0",
+    "pegjs": "^0.10.0",
+    "ts-pegjs": "^4.2.1"
+  }
+}
