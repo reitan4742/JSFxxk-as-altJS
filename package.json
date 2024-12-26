@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "all": "npm-run-all lint clean build start",
-    "build": "node build.mjs",
+    "all": "npm-run-all lint clean build:* tsc",
+    "build:peg": "peggy --plugin ./node_modules/ts-pegjs/dist/tspegjs -o src/parser/jsFxxk.ts src/grammer/jsFxxk.pegjs",
+    "build:ts": "node build.mjs",
     "clean": "rimraf dist",
     "start": "node dist/main",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint src/**/*.ts",
     "lint:prettier": "prettier --check .",
-    "lint:tsc": "tsc",
+    "tsc": "tsc",
     "fix": "prettier --write ."
   },
   "keywords": [],
@@ -19,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.16.0",
+    "@types/escodegen": "^0.0.10",
     "@types/node": "^22.10.1",
     "@types/pegjs": "^0.10.6",
     "eslint": "^9.16.0",
